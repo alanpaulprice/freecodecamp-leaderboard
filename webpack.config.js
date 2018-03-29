@@ -1,14 +1,15 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['./src/index.js'],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist/js'),
-    publicPath: '/dist/js/'
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: 'dist'
   },
   devServer: {
-    contentBase: './',
+    contentBase: path.resolve(__dirname, 'dist'),
     historyApiFallback: true,
     port: 1234
   },
@@ -21,5 +22,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'FreeCodeCamp Leaderboard',
+      template: 'src/index.html'
+    })
+  ],
   mode: 'development'
 };
