@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -23,9 +24,9 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" },
-          { loader: "less-loader" }
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "less-loader"
         ]
       }
     ]
@@ -34,7 +35,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'FreeCodeCamp Leaderboard',
       template: 'src/index.html'
-    })
+    }),
+    new MiniCssExtractPlugin({})
   ],
   mode: 'development'
 };
