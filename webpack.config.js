@@ -7,12 +7,14 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'dist'
+    publicPath: '/'
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     historyApiFallback: true,
-    port: 1234
+    port: 1234,
+    open: true
   },
   module: {
     rules: [
@@ -34,7 +36,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'FreeCodeCamp Leaderboard',
-      template: 'src/index.html'
+      filename: path.resolve(__dirname, 'dist/index.html'),
+      template: path.resolve(__dirname, 'src/index-template.html')
     }),
     new MiniCssExtractPlugin({})
   ],
