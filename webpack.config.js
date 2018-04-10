@@ -30,6 +30,12 @@ module.exports = {
           "css-loader",
           "less-loader"
         ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader?name=[name].[ext]'
+        ]
       }
     ]
   },
