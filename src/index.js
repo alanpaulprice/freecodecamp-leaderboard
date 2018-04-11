@@ -1,5 +1,3 @@
 import styles from './style.less';
-
-const logIt = argy => console.log(argy);
-
-logIt('hello world!!!');
+import './fonts/fontawesome.min.js';
+import './fonts/fa-brands.min.js';
