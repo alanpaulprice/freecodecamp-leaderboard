@@ -2,15 +2,22 @@
 @color-2: #fff;
 
 @font-face {
-  font-family: 'MyFont';
+  font-family: 'Sax Mono';
   src: url('./fonts/saxmono.ttf') format('truetype');
 }
 
 * {
-  color: @color-2;
-  font-family: 'MyFont';
+  box-sizing: border-box;
 }
 
-body{
+body, html{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  font-family: 'Sax Mono';
+  color: @color-2;
   background-color: @color-1;
+  padding: 5px;
 }
