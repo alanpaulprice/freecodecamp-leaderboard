@@ -5,6 +5,9 @@ import './fonts/fa-brands.min.js';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
+import AppHeader from './components/app-header.js';
+import Table from './components/table.js';
+
 class App extends Component{
   constructor(props){
     super(props);
@@ -12,14 +15,19 @@ class App extends Component{
       ThirtyDays: [],
       allTime: []
     }
+
+    this.getLeaderboards();
   }
   render() {
     return (
-      <header>
-        freeCodeCamp <i className='fab fa-free-code-camp'></i>&nbsp;
-        <button className='btn btn-danger'>button</button>
-    </header>
+      <div>
+        <AppHeader/>
+        <Table/>
+      </div>
     )
+  }
+  getLeaderboards(){
+    console.log('works');
   }
 }
 
