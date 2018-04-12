@@ -27,7 +27,7 @@ class App extends Component{
     return (
       <div>
         <AppHeader/>
-        <Table/>
+        <Table data={this.state}/>
       </div>
     )
   }
