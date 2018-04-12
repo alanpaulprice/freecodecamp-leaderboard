@@ -4,6 +4,7 @@ import './fonts/fontawesome.min.js';
 import './fonts/fa-brands.min.js';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 import AppHeader from './components/app-header.js';
 import Table from './components/table.js';
@@ -12,12 +13,16 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      ThirtyDays: [],
-      allTime: []
+      current: 'recent',
+      recent: {},
+      allTime: {}
     }
-
-    this.getLeaderboards();
   }
+
+  componentDidMount() {
+    this.getLeaderboardData();
+  }
+
   render() {
     return (
       <div>
@@ -26,8 +31,18 @@ class App extends Component{
       </div>
     )
   }
-  getLeaderboards(){
-    console.log('works');
+
+  getLeaderboardData(){
+    let tempState = {current: 'recent'};
+    axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
+    .then(response => tempState.recent = response.data)
+    .catch(error => console.log(error));
+
+    axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
+    .then(response => tempState.allTime = response.data)
+    .catch(error => console.log(error));
+
+    this.setState(tempState);
   }
 }
 
