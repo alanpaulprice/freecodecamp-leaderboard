@@ -1,12 +1,15 @@
 import React from 'react';
 
 const Table = (props) => {
+  const upsideIcon = <i className='fab fa-free-code-camp fa-lg align-middle'
+                        data-fa-transform="flip-v"></i>;
 
   let recentTableHead = props.data.current === 'recent' ?
-  <span>Points - Past 30 Days <i className='fab fa-free-code-camp fa-lg align-middle' data-fa-transform="flip-v"></i></span> :
+  <span>Points - Past 30 Days {upsideIcon}</span> :
   <span>Points - Past 30 Days</span>;
+
   let allTimeTableHead = props.data.current === 'allTime' ?
-  <span>Points - All Time <i className='fab fa-free-code-camp fa-lg align-middle' data-fa-transform="flip-v"></i></span> :
+  <span>Points - All Time {upsideIcon}</span> :
   <span>Points - All Time</span>;
 
   return (
