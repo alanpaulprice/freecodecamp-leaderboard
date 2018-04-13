@@ -1,10 +1,14 @@
-// <i className='fab fa-free-code-camp fa-lg align-middle' data-fa-transform="flip-v">
-
-// {props.data.current === 'recent' ? 'Points - Past 30 Days !!!' : 'Points - Past 30 Days'}
-
 import React from 'react';
 
 const Table = (props) => {
+
+  let recentTableHead = props.data.current === 'recent' ?
+  <span>Points - Past 30 Days <i className='fab fa-free-code-camp fa-lg align-middle' data-fa-transform="flip-v"></i></span> :
+  <span>Points - Past 30 Days</span>;
+  let allTimeTableHead = props.data.current === 'allTime' ?
+  <span>Points - All Time <i className='fab fa-free-code-camp fa-lg align-middle' data-fa-transform="flip-v"></i></span> :
+  <span>Points - All Time</span>;
+
   return (
     <table className='table'>
       <thead>
@@ -12,11 +16,9 @@ const Table = (props) => {
         <th scope='col'>#</th>
         <th scope='col'>Camper</th>
         <th scope='col'>
-          {props.data.current === 'recent' ?
-          'Points - Past 30 Days !!!' : 'Points - Past 30 Days'}</th>
+          {recentTableHead}</th>
         <th scope='col'>
-          {props.data.current === 'allTime' ?
-          'Points - All Time !!!' : 'Points - All Time'}</th>
+          {allTimeTableHead}</th>
       </tr>
       </thead>
     </table>

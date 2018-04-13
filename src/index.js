@@ -13,14 +13,14 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      current: 'recent',
+      current: '',
       recent: {},
       allTime: {}
     }
   }
 
   componentDidMount() {
-    this.getLeaderboardData();
+    this.getLeaderboardData('recent');
   }
 
   render() {
@@ -32,8 +32,8 @@ class App extends Component{
     )
   }
 
-  getLeaderboardData(){
-    let tempState = {current: 'recent'};
+  getLeaderboardData(tableType){
+    let tempState = {current: tableType};
     axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
     .then(response => tempState.recent = response.data)
     .catch(error => console.log(error));
