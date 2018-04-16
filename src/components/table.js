@@ -1,31 +1,38 @@
 import React from 'react';
+import TableHead from './table-head.js';
+//import TableContentRow from './table-content-row.js';
 
 const Table = (props) => {
-  const upsideIcon = <i className='fab fa-free-code-camp fa-lg align-middle'
-                        data-fa-transform="flip-v"></i>;
 
-  let recentTableHead = props.data.current === 'recent' ?
-  <span>Points - Past 30 Days {upsideIcon}</span> :
-  <span>Points - Past 30 Days</span>;
-
-  let allTimeTableHead = props.data.current === 'allTime' ?
-  <span>Points - All Time {upsideIcon}</span> :
-  <span>Points - All Time</span>;
 
   return (
     <table className='table'>
-      <thead>
-        <tr>
-        <th scope='col'>#</th>
-        <th scope='col'>Camper</th>
-        <th scope='col'>
-          {recentTableHead}</th>
-        <th scope='col'>
-          {allTimeTableHead}</th>
-      </tr>
-      </thead>
+      <TableHead current={props.current}/>
     </table>
   );
 }
 
 export default Table;
+
+/*
+const TableContents = () => {
+  const tableContentRows = props.data.forEach((user, index) => {
+    return (
+      <TableContentRow
+        position={index}
+        username={user.username}
+        pointsRecent={user.recent}
+        pointsAllTime={user.allTime}
+      />
+    );
+  });
+
+  if (props.data.length < 1) {
+    return <tbody><tr><td>Loading...</td></tr></tbody>
+  } else {
+    return (
+      <tbody>{tableContentRows}</tbody>
+    );
+  }
+};
+*/
