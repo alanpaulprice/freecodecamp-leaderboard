@@ -9,13 +9,16 @@ const TableBody = (props) => {
         </tr>
       );
     } else {
-      return (
-        <tr>
-          <td>
-            {props.data[0].username}
-          </td>
-        </tr>
-      );
+      return props.data.map((user, index) => {
+        return (
+          <tr key={index + user}>
+            <td>{index}</td>
+            <td>{user.username}</td>
+            <td>{user.recent}</td>
+            <td>{user.alltime}</td>
+          </tr>
+        );
+      })
     }
   }
 
