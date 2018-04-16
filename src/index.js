@@ -13,36 +13,40 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      current: '',
-      recent: {},
-      allTime: {}
+      current: 'recent',
+      recent: [],
+      allTime: []
     }
   }
 
   componentDidMount() {
-    this.getLeaderboardData('recent');
+    this.getLeaderboardData();
   }
 
   render() {
     return (
       <div>
         <AppHeader/>
-        <Table data={this.state}/>
+        <Table
+          current={this.state.current}
+          data={eval(this.state[this.state.current])}
+        />
       </div>
     )
   }
 
-  getLeaderboardData(tableType){
-    let tempState = {current: tableType};
-    axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
-    .then(response => tempState.recent = response.data)
-    .catch(error => console.log(error));
-
-    axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
-    .then(response => tempState.allTime = response.data)
-    .catch(error => console.log(error));
-
-    this.setState(tempState);
+  getLeaderboardData(){
+    let tempState = {current: this.state.current};
+    Promise.all([
+      axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent'),
+      axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
+    ]).then((responses) => {
+      tempState.recent = responses[0].data;
+      tempState.allTime = responses[1].data;
+      this.setState(tempState);
+    }).catch((error) => {
+      console.log(error);
+    })
   }
 }
 
