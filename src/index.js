@@ -1,4 +1,4 @@
-import styles from './styles/style.less';
+import './styles/style.less';
 import './styles/bootstrap.min.css';
 import './fonts/fontawesome.min.js';
 import './fonts/fa-brands.min.js';
@@ -17,9 +17,6 @@ class App extends Component{
       recent: [],
       allTime: []
     }
-  }
-
-  componentDidMount() {
     this.getLeaderboardData();
   }
 
@@ -30,20 +27,22 @@ class App extends Component{
         <Table
           current={this.state.current}
           data={eval(this.state[this.state.current])}
+          updateCurrent={this.updateCurrent.bind(this)}
         />
       </div>
     )
   }
 
   getLeaderboardData(){
-    let tempState = {current: this.state.current};
     Promise.all([
       axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent'),
       axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
     ]).then((responses) => {
-      tempState.recent = responses[0].data;
-      tempState.allTime = responses[1].data;
-      this.setState(tempState);
+      this.setState({
+        current: this.state.current,
+        recent: responses[0].data,
+        allTime: responses[1].data
+      });
     }).catch((error) => {
       console.log(error);
     })

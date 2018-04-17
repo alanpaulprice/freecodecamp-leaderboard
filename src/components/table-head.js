@@ -2,12 +2,7 @@ import React from 'react';
 
 const TableHead = (props) => {
 
-  const invertedIcon = (
-    <i
-      className='fab fa-free-code-camp fa-lg align-middle'
-      data-fa-transform="flip-v">
-    </i>
-  );
+  const invertedIcon = <i className='fab fa-free-code-camp fa-lg align-middle' data-fa-transform="flip-v"></i>;
 
   const recentTableHead = props.current === 'recent' ?
   <span>Points - Past 30 Days {invertedIcon}</span> :
@@ -22,8 +17,8 @@ const TableHead = (props) => {
       <tr>
         <th scope='col'>#</th>
         <th scope='col'>Camper</th>
-        <th scope='col'>{recentTableHead}</th>
-        <th scope='col'>{allTimeTableHead}</th>
+        <th scope='col' onClick={() => props.updateCurrent('recent')}>{recentTableHead}</th>
+        <th scope='col' onClick={() => props.updateCurrent('allTime')}>{allTimeTableHead}</th>
       </tr>
     </thead>
   );

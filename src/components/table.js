@@ -5,7 +5,7 @@ import TableBody from './table-body.js';
 const Table = (props) => {
   return (
     <table className='table text-center'>
-      <TableHead current={props.current}/>
+      <TableHead current={props.current} updateCurrent={props.updateCurrent}/>
       <TableBody data={props.data}/>
     </table>
   );

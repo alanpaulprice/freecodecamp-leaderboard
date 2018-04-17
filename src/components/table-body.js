@@ -17,7 +17,7 @@ const TableBody = (props) => {
 
   return (
     <tbody>
-      {props.data.length < 1 ?
+      {!props.data.length ?
         <tr><td>Loading...</td></tr> :
         tableContents()
       }
