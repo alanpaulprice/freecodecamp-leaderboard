@@ -48,6 +48,12 @@ class App extends Component{
       console.log(error);
     })
   }
+
+  updateCurrent(newValue){
+    let tempState = this.state;
+    tempState.current = newValue;
+    this.setState(tempState);
+  }
 }
 
 ReactDOM.render(<App/>, document.getElementById('container'));

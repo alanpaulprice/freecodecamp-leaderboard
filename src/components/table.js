@@ -3,10 +3,8 @@ import TableHead from './table-head.js';
 import TableBody from './table-body.js';
 
 const Table = (props) => {
-
-
   return (
-    <table className='table'>
+    <table className='table text-center'>
       <TableHead current={props.current}/>
       <TableBody data={props.data}/>
     </table>
@@ -14,26 +12,3 @@ const Table = (props) => {
 }
 
 export default Table;
-
-/*
-const TableContents = () => {
-  const tableContentRows = props.data.forEach((user, index) => {
-    return (
-      <TableContentRow
-        position={index}
-        username={user.username}
-        pointsRecent={user.recent}
-        pointsAllTime={user.allTime}
-      />
-    );
-  });
-
-  if (props.data.length < 1) {
-    return <tbody><tr><td>Loading...</td></tr></tbody>
-  } else {
-    return (
-      <tbody>{tableContentRows}</tbody>
-    );
-  }
-};
-*/
