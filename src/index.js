@@ -2,6 +2,7 @@ import './styles/style.less';
 import './styles/bootstrap.min.css';
 import './fonts/fontawesome.min.js';
 import './fonts/fa-brands.min.js';
+import './fonts/fa-solid.min.js';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
