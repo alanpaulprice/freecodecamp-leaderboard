@@ -15,6 +15,15 @@ body, html{
   padding: 0;
 }
 
+
+.one-quarter-opacity{
+  opacity: 0.25;
+}
+
+.three-quarter-opacity{
+  opacity: 0.75;
+}
+
 #container{
   min-width: 435px;
 }
@@ -26,7 +35,7 @@ header{
   h2{
     margin-top: 8px;
     &:hover{
-      opacity: 0.75;
+      .three-quarter-opacity;
     }
   }
 }
@@ -36,13 +45,13 @@ th{
 }
 
 .points-column-head:hover{
-  opacity: 0.75;
+  .three-quarter-opacity;
 }
 
 .avatar{
   width: 3em;
   &:hover{
-    opacity: 0.75;
+    .three-quarter-opacity;
   }
 }
 
@@ -50,7 +59,7 @@ th{
   color: @color-1;
   &:hover{
     color: @color-1;
-    opacity: 0.75;
+    .three-quarter-opacity;
     text-decoration: none;
   }
 }

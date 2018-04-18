@@ -2,15 +2,13 @@ import React from 'react';
 
 const TableHead = (props) => {
 
-  const sortedByIcon = <span>&#x25BC;</span>;
-
   const recentTableHead = props.current === 'recent' ?
-  <span>Points&nbsp;- Past 30 Days {sortedByIcon}</span> :
-  <span>Points&nbsp;- Past 30 Days</span>;
+  <span>Points&nbsp;- Past 30 Days <span>&#x25BC;</span></span> :
+  <span>Points&nbsp;- Past 30 Days <span className='one-quarter-opacity'>&#x25BC;</span></span>;
 
   const allTimeTableHead = props.current === 'allTime' ?
-  <span>Points&nbsp;- All Time {sortedByIcon}</span> :
-  <span>Points&nbsp;- All Time</span>;
+  <span>Points&nbsp;- All Time <span>&#x25BC;</span></span> :
+  <span>Points&nbsp;- All Time <span className='one-quarter-opacity'>&#x25BC;</span></span>;
 
   return (
     <thead>
