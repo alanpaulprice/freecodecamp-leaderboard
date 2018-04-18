@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import AppHeader from './components/app-header.js';
+import AppHead from './components/app-head.js';
 import Table from './components/table.js';
 
 class App extends Component{
@@ -24,7 +24,7 @@ class App extends Component{
   render() {
     return (
       <div>
-        <AppHeader/>
+        <AppHead/>
         <Table
           current={this.state.current}
           data={eval(this.state[this.state.current])}

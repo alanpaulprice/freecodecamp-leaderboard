@@ -6,10 +6,11 @@ const TableBody = (props) => {
     return props.data.map((user, index) => {
       return (
         <tr key={index + user}>
-          <td>{index + 1}</td>
-          <td>{user.username}</td>
-          <td>{user.recent}</td>
-          <td>{user.alltime}</td>
+          <td className="align-middle">{index + 1}</td>
+          <td className="align-middle"><img className='avatar' src={user.img}/></td>
+          <td className="align-middle">{user.username}</td>
+          <td className="align-middle">{user.recent}</td>
+          <td className="align-middle">{user.alltime}</td>
         </tr>
       );
     });

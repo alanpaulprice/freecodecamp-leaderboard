@@ -17,6 +17,7 @@ const TableHead = (props) => {
     <thead>
       <tr>
         <th scope='col'>#</th>
+        <th scope='col'></th>
         <th scope='col'>Camper</th>
         <th scope='col' onClick={() => props.updateCurrent('recent')}>{recentTableHead}</th>
         <th scope='col' onClick={() => props.updateCurrent('allTime')}>{allTimeTableHead}</th>
