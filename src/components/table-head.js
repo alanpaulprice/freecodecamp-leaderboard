@@ -18,8 +18,8 @@ const TableHead = (props) => {
         <th className='align-middle' scope='col'>#</th>
         <th scope='col'></th>
         <th className='align-middle' scope='col'>Camper</th>
-        <th className='align-middle' scope='col' onClick={() => props.updateCurrent('recent')}>{recentTableHead}</th>
-        <th className='align-middle' scope='col' onClick={() => props.updateCurrent('allTime')}>{allTimeTableHead}</th>
+        <th className='align-middle points-column-head' scope='col' onClick={() => props.updateCurrent('recent')}>{recentTableHead}</th>
+        <th className='align-middle points-column-head' scope='col' onClick={() => props.updateCurrent('allTime')}>{allTimeTableHead}</th>
       </tr>
     </thead>
   );
