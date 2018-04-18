@@ -5,7 +5,7 @@ const AppHeader = () => {
     <header className='p-1 pl-3'>
       <h2 className='text-center'>
         freeCodeCamp&nbsp;
-        <i className='fab fa-free-code-camp fa-lg align-middle'></i>
+        <i className='fab fa-free-code-camp fa-lg align-middle'/>
         &nbsp;leaderboard
       </h2>
     </header>
